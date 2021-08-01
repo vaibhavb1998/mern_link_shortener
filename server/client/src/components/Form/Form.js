@@ -41,10 +41,10 @@ const Form = () => {
       })
       .then((res) => {
         setIsUrlVisible(true);
-        // setShortUrl(`https://insta-url.herokuapp.com/${name}`);
-
         const name = res.data.name;
-        setShortUrl(`http://localhost:3000/${name}`);
+        setShortUrl(`${config.SERVER_URI}/${name}`);
+
+        // setShortUrl(`http://localhost:3000/${name}`);
       })
       .catch((err) => {
         alert("Name is already in use!!!");
