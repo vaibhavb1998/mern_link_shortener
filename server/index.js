@@ -49,17 +49,13 @@ app.use((req, res, next) => {
   next(createError(404));
 });
 
-app.get("*", (req, res) => {
-  let path = req.params["0"].substring(1);
-
-  if (protected.includes(path)) {
-    // Return the actual file
-    res.sendFile(`${__dirname}/client/build/${path}`);
-  } else {
-    // Otherwise, redirect to /build/index.html
-    res.sendFile(`${__dirname}/client/build/index.html`);
-  }
-});
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'client/build/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 app.use(function (err, req, res, next) {
   console.error(err.message);
