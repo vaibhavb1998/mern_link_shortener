@@ -49,11 +49,11 @@ app.use((req, res, next) => {
   next(createError(404));
 });
 
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+// app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
+// app.get('/*', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+// });
 
 app.use(function (err, req, res, next) {
   console.error(err.message);
