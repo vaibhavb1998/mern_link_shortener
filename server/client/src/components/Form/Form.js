@@ -42,7 +42,7 @@ const Form = () => {
       .then((res) => {
         setIsUrlVisible(true);
         const name = res.data.name;
-        setShortUrl(`${config.SERVER_URI}/${name}`);
+        setShortUrl(`https://tiny-insta-url.herokuapp.com/${name}`);
 
         // setShortUrl(`http://localhost:3000/${name}`);
       })
