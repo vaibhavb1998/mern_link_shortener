@@ -6,6 +6,7 @@ const validate = (req, res, next) => {
   const formatErrorMessage = ({ msg }) => msg;
 
   const errors = validationResult(req).formatWith(formatErrorMessage);
+  console.log('errors', errors)
   if (!errors.isEmpty()) {
     return res
       .status(httpStatus.EXPECTATION_FAILED)

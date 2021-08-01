@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2:800&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    min-height: 100vh;
+    background-color: black;
+    font-family: 'Exo 2', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    font-size: 140px;
+}
+
+span {
+    color: rgba(0, 0, 255, 0.637);
+}
+
+.text-white {
+    font-size: 50px;
+}

@@ -14,6 +14,7 @@ module.exports = {
       .withMessage("Url is invalid")
       .bail(),
     body("name")
+      .optional()
       .notEmpty()
       .withMessage("Name is required")
       .bail()

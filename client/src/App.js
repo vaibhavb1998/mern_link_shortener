@@ -1,11 +1,20 @@
-import React from 'react';
-import {
-  ChakraProvider,
-  theme,
-} from '@chakra-ui/react';
+import React from "react";
+import NotFound from "./components/NotFound/NotFound";
+import Landing from "./Landing";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-function App() {
-  return <ChakraProvider theme={theme}></ChakraProvider>;
-}
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./app.css";
+
+const App = () => {
+  return (
+    <Router>
+      <div className="App" style={{ minHeight: "100vh" }}>
+        <Route exact path="/page-not-found" component={NotFound} />
+        <Route path="/:name?" component={Landing} />
+      </div>
+    </Router>
+  );
+};
 
 export default App;

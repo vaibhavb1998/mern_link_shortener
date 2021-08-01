@@ -1,0 +1,68 @@
+.banner-area {
+    height: 100vh;
+    margin-top: 20vh;
+}
+
+.banner-heading {
+    color: rgba(255, 255, 255, 0.849);
+    font-size: 60px;
+    font-family: 'Exo 2', sans-serif;
+    margin-top: 100px !important;
+    text-align: left;
+}
+
+.banner-heading-highlight {
+    color: rgba(0, 0, 255, 0.637);
+}
+
+.banner-img {
+    float: right;
+    margin-top: 5%;
+}
+
+.banner-sub-heading {
+    color: rgba(255, 255, 255, 0.521);
+    font-size: 26px;
+    font-family: 'Raleway', sans-serif;
+    text-align: left;
+}
+
+.get-started-btn, .new-link-btn {
+    color: rgba(255, 255, 255, 0.781);
+    margin-top: 20px;
+    font-size: 20px;
+    display: inline-block;
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-left: 30px;
+    border: 2px solid rgba(0, 0, 255, 0.637);
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+.get-started-btn:hover, .new-link-btn:hover {
+    background-color: rgba(0, 0, 255, 0.637);
+    transition: 0.6s;
+    cursor: pointer;
+}
+
+.new-link-btn {
+    margin: 60px 0 0 0;
+}
+
+@media (max-width: 768px) {
+    .banner-area {
+        height: 800px;
+        margin-top: 10vh;
+    }
+    .banner-heading {
+        font-size: 40px;
+    }
+    .banner-sub-heading {
+        font-size: 18px;
+    }
+    .get-started-btn {
+        margin-left: 25%;
+    }
+}

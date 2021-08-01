@@ -13,7 +13,7 @@ const {
 } = require("./validation");
 
 // controller
-const { generateShortUrl, redirectToUrl } = require("./controller");
+const { generateShortUrl, redirectToUrl, generateRandomName } = require("./controller");
 
 // @route POST api/url/generate
 // @desc generate the short url
@@ -21,10 +21,16 @@ routes
   .route("/generate")
   .post(generateShortUrlValidation, validate, generateShortUrl);
 
-// @route POST api/url/generate
-// @desc generate the short url
+// @route GET api/url/redirect/:name
+// @desc get the url based on the name
 routes
   .route("/redirect/:name")
   .get(redirectUrlValidation, validate, redirectToUrl);
+
+// @route GET api/url/redirect/:name
+// @desc get the url based on the name
+routes
+  .route("/generate/random/name")
+  .get(generateRandomName);
 
 module.exports = routes;
