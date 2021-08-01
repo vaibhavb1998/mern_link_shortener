@@ -12,18 +12,14 @@ const Form = () => {
   useEffect(() => {
     const path = currentPath.split("/")[3];
 
-    console.info('path', path)
-
-    if (path && path !== "page-not-found") {
+    if (path && path !== "page-not-found" && !path.includes("#")) {
       axios
         .get(`/api/url/redirect/${path}`)
         .then((res) => {
-          console.info('res', res)
           const { url } = res.data;
           window.location.replace(url);
         })
         .catch((err) => {
-          console.info('err', err)
           const { statusText } = err.response;
           if (statusText === "Not Found") {
             window.location.replace("/page-not-found");
@@ -85,6 +81,7 @@ const Form = () => {
           id=""
           placeholder="Write a custom name... (Optional)"
           spellcheck="false"
+          pattern="[a-zA-Z0-9 ]+"
           value={formValues.name}
           onChange={(e) =>
             setFormValues({ ...formValues, name: e.target.value })
