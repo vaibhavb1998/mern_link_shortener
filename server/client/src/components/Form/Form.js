@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./form.css";
+import config from "../../config";
 
 const Form = () => {
   const [isUrlVisible, setIsUrlVisible] = useState(false);
@@ -14,7 +15,7 @@ const Form = () => {
 
     if (path && path !== "page-not-found") {
       axios
-        .get(`http://localhost:5000/api/url/redirect/${path}`)
+        .get(`${config.SERVER_URI}/api/url/redirect/${path}`)
         .then((res) => {
           const { url } = res.data;
           window.location.replace(url);
@@ -34,7 +35,7 @@ const Form = () => {
     const { url, name } = formValues;
 
     axios
-      .post(`http://localhost:5000/api/url/generate`, {
+      .post(`${config.SERVER_URI}/api/url/generate`, {
         ...(name ? { name } : {}),
         url,
       })
