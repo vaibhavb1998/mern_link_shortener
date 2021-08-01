@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./form.css";
-import config from "../../config";
 
 const Form = () => {
   const [isUrlVisible, setIsUrlVisible] = useState(false);
@@ -13,14 +12,18 @@ const Form = () => {
   useEffect(() => {
     const path = currentPath.split("/")[3];
 
+    console.info('path', path)
+
     if (path && path !== "page-not-found") {
       axios
         .get(`/api/url/redirect/${path}`)
         .then((res) => {
+          console.info('res', res)
           const { url } = res.data;
           window.location.replace(url);
         })
         .catch((err) => {
+          console.info('err', err)
           const { statusText } = err.response;
           if (statusText === "Not Found") {
             window.location.replace("/page-not-found");
