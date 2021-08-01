@@ -9,15 +9,17 @@ const cors = require("cors");
 const urls = require("./api/urls/routes");
 
 // constants
-const { backendPort } = require('./config')
+const { backendPort } = require("./config");
 
 const app = express();
 
 // bodyParser middleware
 app.use(express.json());
-app.use(express.urlencoded({
-  extended: true
-}));
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 // cors
 app.use(cors());
@@ -35,8 +37,12 @@ mongoose
 app.use("/api/url", urls);
 
 // backend server
-const port = backendPort || 5000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server up and running on port ${port}!`));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // error handling
 app.use((req, res, next) => {
