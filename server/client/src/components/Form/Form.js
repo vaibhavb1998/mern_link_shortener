@@ -15,7 +15,7 @@ const Form = () => {
 
     if (path && path !== "page-not-found") {
       axios
-        .get(`${config.SERVER_URI}/api/url/redirect/${path}`)
+        .get(`/api/url/redirect/${path}`)
         .then((res) => {
           const { url } = res.data;
           window.location.replace(url);
@@ -35,7 +35,7 @@ const Form = () => {
     const { url, name } = formValues;
 
     axios
-      .post(`${config.SERVER_URI}/api/url/generate`, {
+      .post(`/api/url/generate`, {
         ...(name ? { name } : {}),
         url,
       })
