@@ -1,7 +1,7 @@
 import React from "react";
 import NotFound from "./components/NotFound/NotFound";
 import Landing from "./Landing";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./app.css";
